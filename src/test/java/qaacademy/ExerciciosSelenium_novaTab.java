@@ -29,6 +29,17 @@ public class ExerciciosSelenium_novaTab {
         driver.switchTo().window(janelas[1].toString()); //faz a troca de janela
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.selenium.dev/"));
+
+        //voltando para a outra janela e selecionando outra opção
+        driver.switchTo().window(janelas[0].toString());
+        System.out.println(driver.getCurrentUrl());
+        driver.findElement(By.xpath("//a[contains(text(),'Open New Seperate Windows')]")).click();
+        driver.findElement(By.xpath("//*[@id='Seperate']/button")).click();
+        Object [] janela2 = driver.getWindowHandles().toArray();
+        driver.switchTo().window(janela2[2].toString());
+        System.out.println(driver.getCurrentUrl());
+        Assert.assertTrue(driver.getCurrentUrl().equals("https://www.selenium.dev/"));
+
     }
 
     @AfterClass
