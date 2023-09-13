@@ -35,11 +35,10 @@ public class ExerciciosSelenium_novaTab {
         System.out.println(driver.getCurrentUrl());
         driver.findElement(By.xpath("//a[contains(text(),'Open New Seperate Windows')]")).click();
         driver.findElement(By.xpath("//*[@id='Seperate']/button")).click();
-        Object [] janela2 = driver.getWindowHandles().toArray();
-        driver.switchTo().window(janela2[2].toString());
+        Object [] janela2 = driver.getWindowHandles().toArray(); //como abre uma nova janela do chrome, precisa criar outro objeto
+        driver.switchTo().window(janela2[1].toString());
         System.out.println(driver.getCurrentUrl());
         Assert.assertTrue(driver.getCurrentUrl().equals("https://www.selenium.dev/"));
-
     }
 
     @AfterClass
