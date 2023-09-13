@@ -23,9 +23,9 @@ public class ExercicioSeleniumDragandDrop {
 
     @Test
     public void testeDragAndDrop() {
-        WebElement elementoUM = driver.findElement(By.id("node"));
-        WebElement areaDestino = driver.findElement(By.id("droparea"));
-        Actions actionProvider = new Actions(driver);
+        WebElement elementoUM = driver.findElement(By.id("node")); //elemento que será jogado
+        WebElement areaDestino = driver.findElement(By.id("droparea")); //area destino do elemento
+        Actions actionProvider = new Actions(driver); //Instancia do ActionProvider
         actionProvider.dragAndDrop(elementoUM, areaDestino).build().perform();
 
         WebElement elementoDois = driver.findElement(By.id("mongo"));
